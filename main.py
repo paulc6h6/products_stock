@@ -1,33 +1,19 @@
-class Warior:
-    player_healt = 100
-    position_x = 6
-    position_y = 0
-
-    def __init__(self, name):
+class Stock:
+    def __init__(self, name, pieces, buy_price, sell_price):
         self.name = name
+        self.pieces = pieces
+        self.buy_price = buy_price
+        self.sell_price = sell_price
+        self.profit = sell_price * pieces - buy_price * pieces
 
-    def take_damege(self):
-        Warior.player_healt -= 1
-        return f"Your player is {self.name}, and he has {self.player_healt} healt."
+    def add_product(self):
+        return f"You add {self.pieces} pieces of {self.name}. PROFIT = {self.profit}"
     
-    def move_left(self):
-        Warior.position_x -= 1
-        return f"{self.name} is in cel {self.position_x}"
-    
-    def move_right(self):
-        Warior.position_x += 1
-        return f"{self.name} is in cel {self.position_x}"
-    
-    def move_down(self):
-        Warior.position_y -= 1
-        return f"{self.name} is in cel {self.position_y}"
-    
-    def move_up(self):
-        Warior.position_y += 1
-        return f"{self.name} is in cel {self.position_y}"
+product_name = input("Enter the name of product ")
+product_pieces = int(input("How many pieces ? "))
+product_price = int(input("What is the price / piece ? "))
+proruct_sellP = int(input("What is the sell price ? "))
 
-warrior_1 = Warior("Paula")
-warrior_2 = Warior("Paul")
+cola = Stock(product_name, product_pieces, product_price, proruct_sellP)
 
-print(warrior_1.take_damege())
-print(warrior_1.move_up())
+print(cola.add_product())
